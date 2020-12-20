@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>TCP-IP网络协议 - Perkins code share</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Perkins" /><meta name="description" content="TCP网络协议概述 TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-strea" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.72.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/tcp-ip%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="TCP-IP网络协议" />
+<meta property="og:description" content="TCP网络协议概述 TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-strea" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/tcp-ip%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/" />
+<meta property="article:published_time" content="2020-12-20T01:37:56+08:00" />
+<meta property="article:modified_time" content="2020-12-20T01:37:56+08:00" />
+<meta itemprop="name" content="TCP-IP网络协议">
+<meta itemprop="description" content="TCP网络协议概述 TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-strea">
+<meta itemprop="datePublished" content="2020-12-20T01:37:56&#43;08:00" />
+<meta itemprop="dateModified" content="2020-12-20T01:37:56&#43;08:00" />
+<meta itemprop="wordCount" content="1541">
+
+
+
+<meta itemprop="keywords" content="计算机网络," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TCP-IP网络协议"/>
+<meta name="twitter:description" content="TCP网络协议概述 TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-strea"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Perkins</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Perkins</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">TCP-IP网络协议</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-12-20 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"> 计算机网络 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tcp网络协议概述">TCP网络协议概述</a></li>
+    <li><a href="#专有名词">专有名词</a></li>
+    <li><a href="#网络分层">网络分层</a></li>
+    <li><a href="#tcp连接建立三次握手">TCP连接建立（三次握手）</a></li>
+    <li><a href="#tcp断开连接四次挥手">TCP断开连接（四次挥手）</a></li>
+    <li><a href="#tcp-端口">TCP 端口</a></li>
+    <li><a href="#tcp是如何保证传输可靠性的">TCP是如何保证传输可靠性的</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="tcp网络协议概述">TCP网络协议概述</h1>
+<p>TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-stream）、全双工（full-duplex）的协议。</p>
+<h1 id="专有名词">专有名词</h1>
+<p>MTU：最大传输单元，一般为1500</p>
+<p>MSS：最大段大小， MSS = MTU - 20（IP头大小）- 20（TCP头大小）= 1500 - 20 -20 = 1460</p>
+<p>MSL：报文最大生存时间，一般为30秒</p>
+<h1 id="网络分层">网络分层</h1>
+<ul>
+<li>
+<p>应用层</p>
+<p>对应协议有 HTTP，DNS，SMTP，FTP等</p>
+</li>
+<li>
+<p>传输层</p>
+<p>对应协议有TCP，UDP</p>
+</li>
+<li>
+<p>网络互联层</p>
+<p>IP 协议</p>
+</li>
+<li>
+<p>网络访问层</p>
+<p>网络访问层也有说法叫做网络接口层，以太网、Wifi、蓝牙工作在这一层，网络访问层提供了主机连接到物理网络需要的硬件和相关的协议，对应协议：Ethernet。</p>
+</li>
+</ul>
+<h1 id="tcp连接建立三次握手">TCP连接建立（三次握手）</h1>
+<ol>
+<li>
+<p>第一次握手：客户端发送一个 SYN 报文段。</p>
+<p>该报文不携带数据，但是占用一个序列号（凡是消耗序列号的 TCP 报文段，一定需要对端确认。如果这个段没有收到确认，会一直重传直到达到指定的次数为止），该报文需要服务端确认。初始序列号（ISN）是由客户端随机生成的一个数字，下次发送数据序列号要加一。</p>
+</li>
+<li>
+<p>第二次握手：服务端接收到客户端发送的SYN报文后，发送一个SYN报文和ACK报文给客户端。</p>
+<p>SYN的序列号值是服务端随机生成的一个数字，ACK的作用是告诉发送端上次发送端SYN报文我收到了，ACK的确认号值是客户端发送过来的序列号值加一（ISN + 1），指定了发送端下次发送的序列号。</p>
+</li>
+<li>
+<p>第三次握手：客户端接收到服务的SYN和ACK报文段后，发送一个ACK段给服务端，用来确认收到了服务端的SYN段。</p>
+<p>因为该ACK段不携带数据，也不需要被确认，因此不消耗序列号。</p>
+</li>
+</ol>
+<p>总结 ：TCP的三次握手主要就是交换彼此的初始序列号，还有就是交换一些辅助信息：最大段大小（MSS）、窗口大小（Win）、窗口缩放因子（WS)、是否支持选择确认（SACK_PERM）等。</p>
+<h1 id="tcp断开连接四次挥手">TCP断开连接（四次挥手）</h1>
+<ol>
+<li>
+<p>客户端发送一个FIN报文给服务端，自身连接状态由 ESTABLISHED 进入  FIN- WAIT-1。</p>
+<p>此时客户端不能发送数据给服务端，但还能接收服务端数据。</p>
+</li>
+<li>
+<p>服务端接收到FIN报文，回复一个ACK报文给客户端，进入 CLOSE_WAIT 状态，客户端收到ACK报文后进入 FIN- WAIT-2 状态。</p>
+</li>
+<li>
+<p>服务端没有数据要发送后，发送FIN报文给客户端，然后进入 LAST-ACK 状态，等待客户端的ACK。</p>
+</li>
+<li>
+<p>客户端收到第三步服务端发送的FIN报文后，回复一个ACK报文给服务端，进入 TIME- WAIT 状态，等待两个MSL（MSL报文最大生存时间，正常是30秒）后进入CLOSED状态， 服务端收到ACK后进入CLOSED状态。</p>
+</li>
+</ol>
+<h1 id="tcp-端口">TCP 端口</h1>
+<blockquote>
+<p>在传输层，我们根据端口来区分不同应用程序</p>
+</blockquote>
+<ul>
+<li>
+<p>端口类型</p>
+<ul>
+<li>
+<p>熟知的端口：熟知端口号由专门的机构由 IANA 分配和控制，范围为 0~1023。为了能让客户端能随时找到自己，服务端程序的端口必须要是固定的。很多熟知端口号已经被用就分配给了特定的应用，比如 HTTP 使用 80端口，HTTPS 使用 443 端口，ssh 使用 22 端口。</p>
+</li>
+<li>
+<p>已登记的端口：已登记的端口不受 IANA 控制，不过由 IANA 登记并提供它们的使用情况清单。它的范围为 1024～49151，已登记的端口常见的端口号有：</p>
+<p>MySQL：3306，Redis：6379，MongoDB：27017</p>
+</li>
+<li>
+<p>临时端口：如果应用程序没有调用 bind() 函数将 socket 绑定到特定的端口上，那么 TCP 和 UDP 会为该 socket 分配一个唯一的临时端口。IANA 将 49152～65535 范围的端口称为临时端口（ephemeral port）或动态端口（dynamic port），也称为私有端口（private port），这些端口可供本地应用程序临时分配端口使用。</p>
+<p>不同的操作系统实现会选择不同的范围分配临时端口，在 Linux 上能分配的端口范围由 /proc/sys/net/ipv4/ip_local_port_range 变量决定，一般 Linux 内核端口范围为 32768~60999</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="tcp是如何保证传输可靠性的">TCP是如何保证传输可靠性的</h1>
+<ul>
+<li>
+<p>超时重传</p>
+</li>
+<li>
+<p>快速重传</p>
+</li>
+<li>
+<p>滑动窗口</p>
+</li>
+<li>
+<p>拥塞控制</p>
+</li>
+<li>
+<p>Nagle 算法</p>
+</li>
+<li>
+<p>延迟确认</p>
+</li>
+<li>
+<p>Keepalive</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Perkins</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-12-20
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/sftp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/">
+            <span class="next-text nav-default">JSchException: channel is not opened</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:perkins.li@foxmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/PerkinsLi" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2020<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Perkins code share</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 18 Dec 2020 01:37:56 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 20 Dec 2020 01:37:56 +0800</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>计算机网络</title>
+      <link>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+      <pubDate>Sun, 20 Dec 2020 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>异常排查</title>

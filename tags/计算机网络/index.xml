@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机网络 on Perkins code share</title>
+    <link>http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 计算机网络 on Perkins code share</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 20 Dec 2020 01:37:56 +0800</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TCP-IP网络协议</title>
+      <link>http://localhost:1313/post/tcp-ip%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
+      <pubDate>Sun, 20 Dec 2020 01:37:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/tcp-ip%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</guid>
+      <description>TCP网络协议概述 TCP 是一个可靠的（reliable）、面向连接的（connection-oriented）、基于字节流（byte-strea</description>
+    </item>
+    
+  </channel>
+</rss>
