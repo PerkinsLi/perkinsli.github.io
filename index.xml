@@ -30,12 +30,21 @@
     </item>
     
     <item>
-      <title>JSchException: channel is not opened</title>
+      <title></title>
       <link>http://localhost:1313/post/sftp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</link>
       <pubDate>Fri, 18 Dec 2020 01:37:56 +0800</pubDate>
       
       <guid>http://localhost:1313/post/sftp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</guid>
       <description>使用Hutool 的Sftp 工具类上传文件报错：JSchException: channel is not opened 背景 ​ Hutool的Sftp工具类上传文件，本地测试没问题</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/</link>
+      <pubDate>Mon, 06 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/</guid>
+      <description>将个人项目发布到maven仓库，使得个人项目可以通过maven引入 环境 操作系统：Mac OS maven版本：3.6 项目地址：GitHub 第一步：</description>
     </item>
     
   </channel>
