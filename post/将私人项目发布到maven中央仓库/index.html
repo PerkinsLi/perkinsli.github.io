@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title> - Perkins code share</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Perkins" /><meta name="description" content="将个人项目发布到maven仓库，使得个人项目可以通过maven引入 环境 操作系统：Mac OS maven版本：3.6 项目地址：GitHub 第一步：" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.72.0 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.c7bc1becf36bcf6a9ebd25d2947e43a2eb745ddb0c9a32b43126fd7fa460c351.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="将个人项目发布到maven仓库，使得个人项目可以通过maven引入 环境 操作系统：Mac OS maven版本：3.6 项目地址：GitHub 第一步：" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/%E5%B0%86%E7%A7%81%E4%BA%BA%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0maven%E4%B8%AD%E5%A4%AE%E4%BB%93%E5%BA%93/" />
+<meta property="article:published_time" content="2020-01-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-06T00:00:00+00:00" />
+<meta itemprop="name" content="">
+<meta itemprop="description" content="将个人项目发布到maven仓库，使得个人项目可以通过maven引入 环境 操作系统：Mac OS maven版本：3.6 项目地址：GitHub 第一步：">
+<meta itemprop="dateModified" content="2020-01-06T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1462">
+
+
+
+<meta itemprop="keywords" content="maven," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="将个人项目发布到maven仓库，使得个人项目可以通过maven引入 环境 操作系统：Mac OS maven版本：3.6 项目地址：GitHub 第一步："/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Perkins</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Perkins</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-06 </span>
+        <div class="post-category">
+            <a href="/categories/maven/"> maven </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境">环境</a></li>
+    <li><a href="#第一步maven项目发布申请">第一步：maven项目发布申请</a>
+      <ul>
+        <li><a href="#1到官网创建一个账号">1.到官网创建一个账号</a></li>
+        <li><a href="#2创建一个issue">2.创建一个issue</a></li>
+      </ul>
+    </li>
+    <li><a href="#工作人员审核">工作人员审核</a></li>
+    <li><a href="#修改个人项目配置">修改个人项目配置</a></li>
+    <li><a href="#修改maven-settingsxml配置文件">修改maven settings.xml配置文件</a></li>
+    <li><a href="#安装gpg">安装gpg</a></li>
+    <li><a href="#打包发布">打包发布</a></li>
+    <li><a href="#进入maven网站发布项目">进入maven网站发布项目</a></li>
+    <li><a href="#最后">最后</a></li>
+    <li><a href="#遇到问题">遇到问题</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>将个人项目发布到maven仓库，使得个人项目可以通过maven引入</p>
+</blockquote>
+<h1 id="环境">环境</h1>
+<p>操作系统：Mac OS</p>
+<p>maven版本：3.6</p>
+<p>项目地址：GitHub</p>
+<h1 id="第一步maven项目发布申请">第一步：maven项目发布申请</h1>
+<h2 id="1到官网创建一个账号">1.到官网创建一个账号</h2>
+<p>地址：https://issues.sonatype.org/secure/Dashboard.jspa</p>
+<h2 id="2创建一个issue">2.创建一个issue</h2>
+<p><img src="/img/sirenxiangmufabudaomaven/groupIdinfo.png" alt=""></p>
+<p>如上为必填字段，还有一个描述就写你项目功能吧，填完后点击 创建 。</p>
+<p><img src="/img/sirenxiangmufabudaomaven/issueinfo.png" alt=""></p>
+<p>如上是创建完成后的issue。</p>
+<h1 id="工作人员审核">工作人员审核</h1>
+<p><img src="/img/sirenxiangmufabudaomaven/mavenworkertalk.png" alt=""></p>
+<p>如上图片，是个工作人员的交流，按照指示做就行了。</p>
+<h1 id="修改个人项目配置">修改个人项目配置</h1>
+<p>我们要把项目发布到maven中央仓库，项目的pom文件要做一定的改变。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">		<span class="c">&lt;!-- 开源协议   --&gt;</span>
+    <span class="nt">&lt;licenses&gt;</span>
+        <span class="nt">&lt;license&gt;</span>
+            <span class="nt">&lt;name&gt;</span>The Apache Software License, Version 2.0<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;url&gt;</span>http://www.apache.org/licenses/LICENSE-2.0.txt<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;/license&gt;</span>
+    <span class="nt">&lt;/licenses&gt;</span>
+
+    <span class="c">&lt;!--  项目的信息，GitHub地址，项目git克隆地址  --&gt;</span>
+    <span class="nt">&lt;scm&gt;</span>
+        <span class="nt">&lt;tag&gt;</span>master<span class="nt">&lt;/tag&gt;</span>
+        <span class="nt">&lt;url&gt;</span>https://github.com/PerkinsLi/simpleLog<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;connection&gt;</span>https://github.com/PerkinsLi/simpleLog.git<span class="nt">&lt;/connection&gt;</span>
+        <span class="nt">&lt;developerConnection&gt;</span>https://github.com/PerkinsLi<span class="nt">&lt;/developerConnection&gt;</span>
+    <span class="nt">&lt;/scm&gt;</span>
+
+    <span class="c">&lt;!--  开发者信息  --&gt;</span>
+    <span class="nt">&lt;developers&gt;</span>
+        <span class="nt">&lt;developer&gt;</span>
+            <span class="nt">&lt;name&gt;</span>PerkinsLi<span class="nt">&lt;/name&gt;</span>
+            <span class="nt">&lt;email&gt;</span>perkins.li@foxmail.com<span class="nt">&lt;/email&gt;</span>
+            <span class="nt">&lt;url&gt;</span>https://github.com/PerkinsLi<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;/developer&gt;</span>
+    <span class="nt">&lt;/developers&gt;</span>
+
+    <span class="c">&lt;!--  maven仓库发布地址  --&gt;</span>
+    <span class="nt">&lt;distributionManagement&gt;</span>
+        <span class="nt">&lt;snapshotRepository&gt;</span>
+            <span class="nt">&lt;id&gt;</span>ossrh<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/content/repositories/snapshots<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;/snapshotRepository&gt;</span>
+        <span class="nt">&lt;repository&gt;</span>
+            <span class="nt">&lt;id&gt;</span>ossrh<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;url&gt;</span>https://oss.sonatype.org/service/local/staging/deploy/maven2/<span class="nt">&lt;/url&gt;</span>
+        <span class="nt">&lt;/repository&gt;</span>
+    <span class="nt">&lt;/distributionManagement&gt;</span>
+
+		<span class="c">&lt;!-- springboot 项目maven build改为maven普通打包方式，不然打的包引入后无法使用 --&gt;</span>
+		<span class="nt">&lt;build&gt;</span>
+        <span class="nt">&lt;plugins&gt;</span>
+            <span class="nt">&lt;plugin&gt;</span>
+                <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                <span class="nt">&lt;artifactId&gt;</span>maven-compiler-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                <span class="nt">&lt;version&gt;</span>3.3<span class="nt">&lt;/version&gt;</span>
+                <span class="nt">&lt;configuration&gt;</span>
+                    <span class="nt">&lt;encoding&gt;</span>UTF-8<span class="nt">&lt;/encoding&gt;</span>
+                    <span class="nt">&lt;source&gt;</span>1.8<span class="nt">&lt;/source&gt;</span>
+                    <span class="nt">&lt;target&gt;</span>1.8<span class="nt">&lt;/target&gt;</span>
+                    <span class="nt">&lt;showWarnings&gt;</span>true<span class="nt">&lt;/showWarnings&gt;</span>
+                <span class="nt">&lt;/configuration&gt;</span>
+            <span class="nt">&lt;/plugin&gt;</span>
+        <span class="nt">&lt;/plugins&gt;</span>
+    <span class="nt">&lt;/build&gt;</span>
+
+<span class="c">&lt;!-- 打包配置 --&gt;</span>
+<span class="nt">&lt;profiles&gt;</span>
+        <span class="nt">&lt;profile&gt;</span>
+            <span class="nt">&lt;id&gt;</span>release<span class="nt">&lt;/id&gt;</span>
+            <span class="nt">&lt;build&gt;</span>
+                <span class="nt">&lt;plugins&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-source-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>2.2.1<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>attach-sources<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>jar-no-fork<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-javadoc-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>2.9.1<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>attach-javadocs<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>jar<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                    <span class="nt">&lt;plugin&gt;</span>
+                        <span class="nt">&lt;groupId&gt;</span>org.apache.maven.plugins<span class="nt">&lt;/groupId&gt;</span>
+                        <span class="nt">&lt;artifactId&gt;</span>maven-gpg-plugin<span class="nt">&lt;/artifactId&gt;</span>
+                        <span class="nt">&lt;version&gt;</span>1.6<span class="nt">&lt;/version&gt;</span>
+                        <span class="nt">&lt;executions&gt;</span>
+                            <span class="nt">&lt;execution&gt;</span>
+                                <span class="nt">&lt;id&gt;</span>sign-artifacts<span class="nt">&lt;/id&gt;</span>
+                                <span class="nt">&lt;phase&gt;</span>verify<span class="nt">&lt;/phase&gt;</span>
+                                <span class="nt">&lt;goals&gt;</span>
+                                    <span class="nt">&lt;goal&gt;</span>sign<span class="nt">&lt;/goal&gt;</span>
+                                <span class="nt">&lt;/goals&gt;</span>
+                            <span class="nt">&lt;/execution&gt;</span>
+                        <span class="nt">&lt;/executions&gt;</span>
+                    <span class="nt">&lt;/plugin&gt;</span>
+                <span class="nt">&lt;/plugins&gt;</span>
+            <span class="nt">&lt;/build&gt;</span>
+        <span class="nt">&lt;/profile&gt;</span>
+    <span class="nt">&lt;/profiles&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="修改maven-settingsxml配置文件">修改maven settings.xml配置文件</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-xml" data-lang="xml">		<span class="nt">&lt;server&gt;</span>
+      <span class="nt">&lt;id&gt;</span>ossrh<span class="nt">&lt;/id&gt;</span>
+      <span class="nt">&lt;username&gt;</span>用户名<span class="nt">&lt;/username&gt;</span>
+      <span class="nt">&lt;password&gt;</span>密码<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/server&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>在配置文件增加如上信息，用户名和密码就是我们开始注册的账户密码</p>
+<h1 id="安装gpg">安装gpg</h1>
+<p>gpg是用来生成密钥并将公钥上传到密钥服务器，我是Mac系统，安装的是gpg，Windows下使用gpg4win来进行配置。下载地址 <code>https://www.gpg4win.org/get-gpg4win.html</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># mac安装gpg</span>
+brew install gpg
+
+<span class="c1"># 查看是否安装成功</span>
+gpg --version
+
+<span class="c1"># 生成密钥,生成时要填入用户名，邮箱，密码，密码在打包发布时要用到</span>
+gpg --gen-key
+
+<span class="c1"># 查看公钥</span>
+gpg --list-keys
+
+<span class="c1"># 将生成的公钥发布到服务器</span>
+gpg --keyserver hkp://pool.sks-keyservers.net --send-keys 你的公钥
+
+<span class="c1"># 查看公钥是否发布成功</span>
+gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 你的公钥
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="打包发布">打包发布</h1>
+<p>现在，一切准备工作都做好了，终于可以打包发布到maven仓库，奥利给！</p>
+<p>打包命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">mvn clean deploy -P release verify <span class="s1">&#39;-Dgpg.passphrase=gpg密钥密码&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="进入maven网站发布项目">进入maven网站发布项目</h1>
+<p>进入该网站，用户名密码同样是最开始时注册的：https://oss.sonatype.org/#stagingRepositories</p>
+<p><img src="/img/sirenxiangmufabudaomaven/fabu.png" alt=""></p>
+<p>如上所示先点击close按钮，然后可以到下面的active面板看进度，得一会儿，close完成后才能点release按钮，完成后算是发布成功了，但是要在maven中央仓库能搜到还得几个小时，不过你可以自己直接引入试试，看看发布的包对不对</p>
+<h1 id="最后">最后</h1>
+<p>此时包算是发布完成了，我们要到我们创建的issue上加个评论说一下，工作人员好把我们把这个issue关掉。</p>
+<p><img src="/img/sirenxiangmufabudaomaven/closeIssue.png" alt=""></p>
+<h1 id="遇到问题">遇到问题</h1>
+<p>我们做一件事，不都是一帆风顺，总会遇到一些预料之外的事情，以下就是我遇到的坑，如果你也遇到了，希望能帮你避过坑，一帆风顺。</p>
+<blockquote>
+<p>运行打包发布命令时，遇到这个问题：gpg: signing failed: Inappropriate ioctl for device</p>
+</blockquote>
+<p>从错误上看，很明显，gpg加密解密有问题，经过一番百度,说是gpg无法弹出窗口，我先是在我的 .bash_profile(mac系统配置文件)文件增加了 如下配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nb">export</span> <span class="nv">GPG_TTY</span><span class="o">=</span><span class="k">$(</span>tty<span class="k">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>然而并没有啥用</p>
+<p>然后我在  .gnupg 文件下增加了如下两个配置文件和内容</p>
+<p>gpg-agent.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">allow-loopback-pinentry
+</code></pre></td></tr></table>
+</div>
+</div><p>gpg.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">use-agent
+pinentry-mode loopback
+</code></pre></td></tr></table>
+</div>
+</div><p>问题解决，打包成功。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Perkins</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-06
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/maven/">maven</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/sftp%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:perkins.li@foxmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://github.com/PerkinsLi" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>olOwOlo</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
